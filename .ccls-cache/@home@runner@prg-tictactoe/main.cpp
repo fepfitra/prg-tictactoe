@@ -35,7 +35,7 @@ class ticTacToe{
     }
 
     void clearScreen(){
-      //todo6=≠
+      //todo6
     }
 };
 
