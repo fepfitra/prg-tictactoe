@@ -10,7 +10,7 @@ class ticTacToe{
       string name;
       int score;
     } player1, player2;
-    string winner;
+    // string winner;
 
   public:
     void inputPlayerName(){
@@ -29,9 +29,8 @@ class ticTacToe{
       //todo4
     }
 
-    string win(){
+    void win(){
       //todo5
-      return winner;
     }
 
     void clearScreen(){
