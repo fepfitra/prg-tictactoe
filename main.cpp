@@ -2,25 +2,43 @@
 
 using namespace std;
 
-char board[5][5]; //pakai papan 3x3, nilai hanya X, O, dan _
-bool isPlayerx = true;
-struct {
-  string name;
-  int score;
-} playerx, playero;
+class ticTacToe{
+  private:
+    char board[6][6];
+    char playingCode = 'X';
+    struct {
+      string name;
+      int score;
+    } player1, player2;
+    string winner;
 
-void init(); //Todo mengisi data dan menampilkan papan kosong
-bool isAvailable(int row, int column); //mengecek apakah bisa diisi atau tidak
-bool isInputValid(int number); //mengecek apakah inputnya valdi
+  public:
+    void inputPlayerName(){
+      //Todo1
+    }
 
-void clearScreen(); //menghapus layar
+    void showBoard(){
+      //Todo2
+    }
 
-bool isEnd(); //mengecek apakah tabel terisi semua
+    void inputToBoard(){
+      //Todo3
+    }
 
-void showBoard(); //menampilkan semua data
+    void checkLine(){
+      //todo4
+    }
+
+    string win(){
+      //todo5
+      return winner;
+    }
+
+    void clearScreen(){
+      //todo6=≠
+    }
+};
 
 int main() {
-  init();
-  showBoard();
   return 0;
 }
