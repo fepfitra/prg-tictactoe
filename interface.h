@@ -32,10 +32,8 @@ class interface{
       cout << message;
       string s;
       cin >> s;
-    
       return s;
     }
-
 
     void divider(char style, int width=63, bool newLine=true){
       if(width<1){
@@ -101,26 +99,27 @@ class interface{
     }
 
     void inputCoordinate(ticTacToe& game){
-        string coordinate;
-        char val;
-        if(game.getXPlaying()){
-          coordinate = this->inputString(game.getPlayer1().name + " giliran main, silakan input koordinat : ") + "\n";
-          game.setXPlaying(false);
-          val = 'X';
-        }else{
-          coordinate = this->inputString(game.getPlayer2().name + " giliran main, silakan input koordinat : ") + "\n";
-          game.setXPlaying(true);
-          val = 'O';
-        }
-        int row = coordinate.at(0)-97;
-        int column = coordinate.at(1)-97;
-        if(game.getCell(row, column) == ' '){
-          game.setCell(row , column, val);
-          game.checkLine();
-        }else{
-          game.getIsXPlaying()?game.setIsXPlaying(false):game.setIsXPlaying(true);
-        }
+      string coordinate;
+      char val;
+      if(game.getIsXPlaying()){
+        coordinate = this->inputString(game.getPlayer1().name + " giliran main, silakan input koordinat : ") + "\n";
+        game.setIsXPlaying(false);
+        val = 'X';
+      }else{
+        coordinate = this->inputString(game.getPlayer2().name + " giliran main, silakan input koordinat : ") + "\n";
+        game.setIsXPlaying(true);
+        val = 'O';
+      }
+      int row = coordinate.at(0)-97;
+      int column = coordinate.at(1)-97;
+      if(game.getCell(row, column) == game.getInitValue()){
+        game.setCell(row , column, val);
+      }else{
+        game.getIsXPlaying()?game.setIsXPlaying(false):game.setIsXPlaying(true);
+      }
+      game.checkLine(row, column);
     }
+
     void gameOver(ticTacToe game){
       newLine(5);
       cout << "OUR WINNER IS ...";
